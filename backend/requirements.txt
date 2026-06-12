@@ -3,7 +3,7 @@ uvicorn[standard]
 
 sqlalchemy
 alembic
-psycopg2-binary
+asyncpg
 
 pydantic
 pydantic-settings
@@ -11,13 +11,14 @@ python-dotenv
 
 passlib[bcrypt]
 python-jose[cryptography]
+bcrypt<5
 
 email-validator
-
 python-multipart
-
-bcrypt
 
 httpx
 
 pytest
+pytest-asyncio
+
+greenlet
