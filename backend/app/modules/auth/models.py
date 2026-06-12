@@ -1,10 +1,19 @@
-from sqlalchemy import Column, String, Boolean, DateTime, Text, ForeignKey
+from sqlalchemy import BigInteger, Boolean, Column, DateTime, ForeignKey, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 
-from app.core.database import Base
+from app.core.base import Base
+
+
+class Role(Base):
+    __tablename__ = "roles"
+
+    id = Column(BigInteger, primary_key=True)
+    name = Column(String(100), unique=True, nullable=False)
+
+    users = relationship("User", back_populates="role")
 
 
 class User(Base):
