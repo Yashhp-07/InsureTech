@@ -41,4 +41,7 @@ class AuthRepository:
         return refresh_token_entry
 
 
+    async def delete_refresh_token(self, db: AsyncSession):
+        pass
+
 Repository = AuthRepository()

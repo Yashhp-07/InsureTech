@@ -64,4 +64,9 @@ class AuthService:
         }
 
 
+    async def logout_user_service(self, db: AsyncSession):
+        
+        await Repository.delete_refresh_token(db)
+        return {"message": "Successfully logged out"}
+
 Service = AuthService()
