@@ -1,38 +1,37 @@
 name: CI
 
 on:
-push:
-branches:
-- develop
-- staging
-- main
+  push:
+    branches:
+      - develop
+      - staging
+      - main
 
-pull_request:
-branches:
-- develop
-- staging
-- main
+  pull_request:
+    branches:
+      - develop
+      - staging
+      - main
 
 jobs:
-frontend-build:
-runs-on: ubuntu-latest
+  frontend-build:
+    runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  - name: Setup Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-  - name: Install Dependencies
-    run: |
-      cd frontend
-      npm install
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm install
 
-  - name: Build Frontend
-    run: |
-      cd frontend
-      npm run build
-```
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm run build
